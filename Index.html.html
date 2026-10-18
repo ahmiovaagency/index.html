@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmiova Agency | Digital Marketing Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ================= CSS START ================= -->
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #1e90ff;
+  --blue-dark: #0a5fcf;
+  --blue-glow: #4da6ff;
+  --black: #05070d;
+  --black-2: #0a0e1a;
+  --black-3: #101625;
+  --text: #e6edf7;
+  --muted: #8a97b0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--blue), var(--blue-dark));
+  border-radius: 10px;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: 0.4s;
+}
+
+nav.scrolled {
+  background: rgba(5, 7, 13, 0.85);
+  backdrop-filter: blur(14px);
+  padding: 12px 6%;
+  border-bottom: 1px solid rgba(30, 144, 255, 0.15);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span:first-child {
+  background: linear-gradient(135deg, var(--blue), #7cc4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo .dot {
+  width: 9px; height: 9px;
+  background: var(--blue);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--blue);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 2px;
+  background: var(--blue);
+  transition: 0.3s;
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.nav-links a:hover { color: var(--blue-glow); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-btn {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0.9rem;
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.35);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.7);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 26px; height: 3px;
+  background: var(--blue);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 6% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.18) 0%, transparent 65%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(30, 144, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 144, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid rgba(30, 144, 255, 0.4);
+  border-radius: 30px;
+  background: rgba(30, 144, 255, 0.08);
+  color: var(--blue-glow);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease;
+}
+
+.badge .pulse-dot {
+  width: 8px; height: 8px;
+  background: var(--blue);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--blue);
+  animation: pulse 1.8s infinite;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 6vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+
+.hero h1 .grad {
+  background: linear-gradient(135deg, var(--blue) 0%, #7cc4ff 50%, var(--blue-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p.sub {
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s ease 0.3s both;
+}
+
+.btn {
+  padding: 15px 36px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.35s;
+  font-family: inherit;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(30, 144, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(30, 144, 255, 0.75);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(30, 144, 255, 0.45);
+}
+
+.btn-ghost:hover {
+  background: rgba(30, 144, 255, 0.1);
+  border-color: var(--blue);
+  transform: translateY(-3px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  margin-top: 70px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.8s ease 0.5s both;
+}
+
+.stat h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--blue), #9cd1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* SECTIONS */
+section { padding: 110px 6%; position: relative; }
+
+.section-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 70px;
+}
+
+.section-tag {
+  color: var(--blue-glow);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.section-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-head h2 span {
+  background: linear-gradient(135deg, var(--blue), #9cd1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+/* SERVICES */
+#services {
+  background: linear-gradient(180deg, var(--black) 0%, var(--black-2) 100%);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 26px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: linear-gradient(160deg, var(--black-3) 0%, rgba(10, 14, 26, 0.6) 100%);
+  border: 1px solid rgba(30, 144, 255, 0.13);
+  border-radius: 20px;
+  padding: 36px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.service-card:hover::after { opacity: 1; }
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(30, 144, 255, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(30, 144, 255, 0.12);
+}
+
+.service-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0.05));
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 22px;
+  transition: 0.4s;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.4);
+}
+
+.service-card h3 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+/* PROCESS */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.process-step {
+  padding: 34px 26px;
+  border-radius: 18px;
+  background: rgba(16, 22, 37, 0.5);
+  border: 1px solid rgba(30, 144, 255, 0.1);
+  transition: 0.4s;
+}
+
+.process-step:hover {
+  border-color: rgba(30, 144, 255, 0.45);
+  transform: translateY(-6px);
+  background: rgba(16, 22, 37, 0.85);
+}
+
+.step-num {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: rgba(30, 144, 255, 0.22);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.process-step h4 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.process-step p {
+  color: var(--muted);
+  font-size: 0.87rem;
+  font-weight: 300;
+}
+
+/* WHY US */
+#why {
+  background: linear-gradient(180deg, var(--black-2) 0%, var(--black) 100%);
+}
+
+.why-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1150px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.why-text h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.why-text h2 span {
+  background: linear-gradient(135deg, var(--blue), #9cd1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.why-text > p {
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 0.94rem;
+}
+
+.check {
+  width: 24px; height: 24px;
+  min-width: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  margin-top: 2px;
+  box-shadow: 0 0 14px rgba(30, 144, 255, 0.5);
+}
+
+.why-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.visual-card {
+  background: linear-gradient(160deg, var(--black-3), rgba(10, 14, 26, 0.5));
+  border: 1px solid rgba(30, 144, 255, 0.15);
+  border-radius: 18px;
+  padding: 28px 24px;
+  transition: 0.4s;
+}
+
+.visual-card:nth-child(2) { transform: translateY(24px); }
+.visual-card:nth-child(4) { transform: translateY(24px); }
+
+.visual-card:hover {
+  border-color: rgba(30, 144, 255, 0.5);
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.12);
+}
+
+.visual-card .vnum {
+  font-size: 1.9rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--blue), #9cd1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.visual-card .vlabel {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* CTA */
+.cta-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 70px 40px;
+  border-radius: 28px;
+  background: linear-gradient(150deg, rgba(30, 144, 255, 0.13), rgba(10, 14, 26, 0.9));
+  border: 1px solid rgba(30, 144, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: -60%; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(30, 144, 255, 0.22), transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-box > * { position: relative; z-index: 1; }
+
+.cta-box h2 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.cta-box p {
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto 34px;
+}
+
+/* CONTACT */
+.contact-wrap { max-width: 700px; margin: 0 auto; }
+.form-group { margin-bottom: 18px; }
+
+input, textarea {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(16, 22, 37, 0.7);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.93rem;
+  transition: 0.3s;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.15);
+}
+
+input::placeholder, textarea::placeholder { color: #5a6780; }
+textarea { resize: vertical; min-height: 130px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* FOOTER */
+footer {
+  padding: 60px 6% 30px;
+  border-top: 1px solid rgba(30, 144, 255, 0.12);
+  background: var(--black);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.footer-brand { max-width: 300px; }
+.footer-brand .logo { margin-bottom: 14px; }
+
+.footer-brand p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+
+.footer-col h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--blue-glow);
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: 0.3s;
+}
+
+.footer-col a:hover { color: var(--blue-glow); padding-left: 4px; }
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 26px;
+  border-top: 1px solid rgba(30, 144, 255, 0.1);
+  color: var(--muted);
+  font-size: 0.83rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .why-wrap { grid-template-columns: 1fr; }
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(5, 7, 13, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: 0.45s;
+    border-left: 1px solid rgba(30, 144, 255, 0.2);
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 1.1rem; }
+  .menu-toggle { display: flex; z-index: 1100; }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+@media (max-width: 600px) {
+  section { padding: 80px 5%; }
+  .hero-stats { gap: 34px; }
+  .stat h3 { font-size: 1.7rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .why-visual { grid-template-columns: 1fr; }
+  .visual-card:nth-child(2), .visual-card:nth-child(4) { transform: none; }
+  .cta-box { padding: 50px 24px; }
+  .footer-top { flex-direction: column; }
+}
+</style>
+<!-- ================= CSS END ================= -->
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="logo"><span>Ahmiova</span><span class="dot"></span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView()">Get Started</button>
+  <button class="menu-toggle" id="menuToggle">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge"><span class="pulse-dot"></span> Digital Growth Partner</div>
+    <h1>Grow Your Brand With <span class="grad">Ahmiova Agency</span></h1>
+    <p class="sub">We deliver premium digital marketing services — SEO, Meta Paid Ads, Web Development & complete growth solutions to scale your business online.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">Start Your Project →</a>
+      <a href="#services" class="btn btn-ghost">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><h3 data-count="250">0</h3><p>Projects Done</p></div>
+    <div class="stat"><h3 data-count="180">0</h3><p>Happy Clients</p></div>
+    <div class="stat"><h3 data-count="98">0</h3><p>% Satisfaction</p></div>
+    <div class="stat"><h3 data-count="5">0</h3><p>Years Experience</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-head reveal">
+    <span class="section-tag">Our Services</span>
+    <h2>Complete <span>Digital Marketing</span> Solutions</h2>
+    <p>Everything your business needs to dominate the digital world — under one roof.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon">🔍</div><h3>SEO Service</h3><p>Rank higher on Google with on-page, off-page & technical SEO strategies that drive organic traffic and real leads.</p></div>
+    <div class="service-card reveal"><div class="service-icon">📈</div><h3>Meta Paid Ads</h3><p>High-converting Facebook & Instagram ad campaigns with precise targeting, creative testing and maximum ROAS.</p></div>
+    <div class="service-card reveal"><div class="service-icon">💻</div><h3>Website Development</h3><p>Fast, modern, mobile-friendly and SEO-optimized websites built to convert visitors into paying customers.</p></div>
+    <div class="service-card reveal"><div class="service-icon">🎯</div><h3>Google Ads (PPC)</h3><p>Target high-intent customers with search, display & shopping ads managed for maximum conversions.</p></div>
+    <div class="service-card reveal"><div class="service-icon">📱</div><h3>Social Media Marketing</h3><p>Complete social media management, content creation & growth strategy to build a strong brand presence.</p></div>
+    <div class="service-card reveal"><div class="service-icon">✍️</div><h3>Content Marketing</h3><p>SEO blogs, copywriting & content strategies that build authority and attract your ideal audience.</p></div>
+    <div class="service-card reveal"><div class="service-icon">📧</div><h3>Email Marketing</h3><p>Automated email funnels & campaigns that nurture leads and boost repeat sales on autopilot.</p></div>
+    <div class="service-card reveal"><div class="service-icon">🎨</div><h3>Graphic Design</h3><p>Premium logos, banners, ad creatives & brand identity designs that make your business stand out.</p></div>
+    <div class="service-card reveal"><div class="service-icon">🚀</div><h3>Brand Strategy</h3><p>Full digital growth roadmap — market research, positioning & scaling strategy for long-term success.</p></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-head reveal">
+    <span class="section-tag">How We Work</span>
+    <h2>Our Simple <span>4-Step Process</span></h2>
+    <p>From strategy to results — a proven workflow that delivers consistent growth.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal"><div class="step-num">01</div><h4>Research & Strategy</h4><p>We analyze your business, competitors and audience to build a custom growth plan.</p></div>
+    <div class="process-step reveal"><div class="step-num">02</div><h4>Setup & Execution</h4><p>Campaigns, websites and funnels are built and launched with precision.</p></div>
+    <div class="process-step reveal"><div class="step-num">03</div><h4>Optimization</h4><p>Continuous A/B testing, tracking and optimization for the best performance.</p></div>
+    <div class="process-step reveal"><div class="step-num">04</div><h4>Scale & Report</h4><p>We scale what works and deliver transparent reports with real numbers.</p></div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-wrap">
+    <div class="why-text reveal">
+      <span class="section-tag">Why Ahmiova</span>
+      <h2>We Don't Just Market — <span>We Deliver Growth</span></h2>
+      <p>Our data-driven approach and premium execution help brands achieve measurable results, not just promises.</p>
+      <ul class="why-list">
+        <li><span class="check">✓</span> 100% Transparent Reporting & Real Numbers</li>
+        <li><span class="check">✓</span> Dedicated Account Manager for Every Client</li>
+        <li><span class="check">✓</span> ROI-Focused Campaigns (Not Vanity Metrics)</li>
+        <li><span class="check">✓</span> Fast Delivery & 24/7 Support</li>
+        <li><span class="check">✓</span> Custom Strategy for Every Business Type</li>
+      </ul>
+    </div>
+    <div class="why-visual reveal">
+      <div class="visual-card"><div class="vnum">250+</div><div class="vlabel">Projects Delivered</div></div>
+      <div class="visual-card"><div class="vnum">4.9★</div><div class="vlabel">Client Rating</div></div>
+      <div class="visual-card"><div class="vnum">3x</div><div class="vlabel">Average ROAS</div></div>
+      <div class="visual-card"><div class="vnum">24/7</div><div class="vlabel">Support Available</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + CONTACT -->
+<section id="contact">
+  <div class="cta-box reveal">
+    <h2>Ready To Scale Your Business?</h2>
+    <p>Get a free consultation and a custom digital marketing plan tailored to your goals.</p>
+    <a href="https://wa.me/923000000000" class="btn btn-primary" target="_blank">💬 Chat On WhatsApp</a>
+  </div>
+
+  <div class="contact-wrap reveal" style="margin-top:70px;">
+    <div class="section-head">
+      <span class="section-tag">Contact Us</span>
+      <h2>Let's Build Something <span>Great</span></h2>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+        <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+      </div>
+      <div class="form-group"><input type="text" placeholder="Service You Need (SEO, Ads, Website...)" required></div>
+      <div class="form-group"><textarea placeholder="Tell us about your project..." required></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message 🚀</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo"><span>Ahmiova</span><span class="dot"></span></div>
+      <p>Premium digital marketing agency helping brands grow with SEO, paid ads, web development and smart strategy.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">SEO Service</a></li>
+        <li><a href="#services">Meta Paid Ads</a></li>
+        <li><a href="#services">Website Development</a></li>
+        <li><a href="#services">Social Media Marketing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:hello@ahmiova.com">hello@ahmiova.com</a></li>
+        <li><a href="https://wa.me/923000000000" target="_blank">WhatsApp</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Ahmiova Agency. All Rights Reserved. | Crafted with 💙</div>
+</footer>
+
+<!-- ================= JAVASCRIPT START ================= -->
+<script>
+// NAVBAR SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// MOBILE MENU
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  menuToggle.classList.toggle('active');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('active');
+  });
+});
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('active'), i * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// COUNTER ANIMATION
+const counters = document.querySelectorAll('[data-count]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.count;
+      let current = 0;
+      const step = target / 60;
+      const update = () => {
+        current += step;
+        if (current < target) {
+          el.textContent = Math.floor(current) + (target > 10 ? '+' : '');
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = target + (target > 10 ? '+' : '');
+        }
+      };
+      update();
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// FORM SUBMIT
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  const original = btn.textContent;
+  btn.textContent = '✓ Message Sent!';
+  btn.style.background = 'linear-gradient(135deg, #00c853, #009624)';
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.style.background = '';
+    e.target.reset();
+  }, 2500);
+});
+</script>
+<!-- ================= JAVASCRIPT END ================= -->
+
+</body>
+</html>
